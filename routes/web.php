@@ -1,13 +1,10 @@
 <?php
-Route::get('/', function () {
-    return view('welcome');
-    Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
-        Route::get('/', function () {
-            return redirect()->route('vanilo.order.index');
-        })->name('admin.dashboard');
-    });
+Route::group(['middleware' => ['web', 'auth']], function () {
+	Route::get('patients', 'PatientController@index')->name('patients.all');
+
+	Route::get('/', function () {
+		return redirect()->route('patients.all');
+	})->name('home');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

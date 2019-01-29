@@ -9,5 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
+	protected $itemsPerPage = 18;
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
