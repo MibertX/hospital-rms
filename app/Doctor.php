@@ -3,7 +3,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\ModelWithUserData;
 
-class Patient extends Model
+class Doctor extends Model
 {
 	use ModelWithUserData;
 }

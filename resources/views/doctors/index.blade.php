@@ -1,13 +1,11 @@
 @extends('appshell::layouts.default')
 
 @section('title')
-    {{ __('Patients') }}
+    {{ __('Doctors') }}
 @stop
 
 @section('content')
-
     <div class="card card-accent-secondary">
-
         <div class="card-header">
             @yield('title')
 
@@ -18,7 +16,7 @@
         </div>
 
         <div class="admin__user-list" id="findby__result-container">
-            @include('patients._list', ['patients' => $patients])
+            @include('doctors._list', ['doctors' => $doctors])
         </div>
     </div>
 

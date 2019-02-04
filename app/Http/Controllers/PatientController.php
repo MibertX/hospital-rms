@@ -6,6 +6,7 @@ use App\Patient;
 class PatientController extends Controller
 {
 	protected $patientModel;
+
 	public function __construct(Patient $patientModel)
 	{
 		$this->patientModel = $patientModel;
@@ -14,14 +15,18 @@ class PatientController extends Controller
 	public function index(Request $request)
 	{
 		$patientsQuery = $this->patientModel;
-		if ( $request->get('filter-field') &&  $request->get('filter-value')) {
+		if ($request->get('filter-field') &&  $request->get('filter-value')) {
 			$field = $request->get('filter-field');
 			$value = $request->get('filter-value');
 
 			if ($field == 'age') {
-				$patientsQuery = $patientsQuery->where($field, $value);
+				$patientsQuery = $patientsQuery->whereHas('user', function ($q) use ($value) {
+					$q->where('age', $value);
+				});
 			} else {
-				$patientsQuery = $patientsQuery->where($field, 'LIKE', '%'.$value.'%');
+				$patientsQuery = $patientsQuery->whereHas('user', function ($q) use ($value, $field) {
+					$q->where($field, 'LIKE', '%'.$value.'%');
+				});
 			}
 		}
 

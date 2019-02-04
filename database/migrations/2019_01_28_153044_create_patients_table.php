@@ -9,7 +9,7 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user-id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('name');
 			$table->string('gender')->nullable();
             $table->string('status');
