@@ -11,8 +11,8 @@ class GenerateMenus
 			$appshellMenu->removeItem('crm_group');
 			$appshellMenu->removeItem('shop');
 			$appshellMenu->addItem('patients', __('Patients'), ['route' => 'patients.all']);
-
 			$appshellMenu->addItem('doctors', __('Doctors'), ['route' => 'doctors.all']);
+			$appshellMenu->addItem('departments', __('Departments'), ['route' => 'departments.all']);
 		}
 
         return $next($request);

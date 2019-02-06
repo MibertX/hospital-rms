@@ -4,7 +4,7 @@ use App\User;
 
 class UserSeeder extends Seeder
 {
-	protected $needCreate = 300;
+	protected $needCreate = 500;
 
 	public function run()
 	{

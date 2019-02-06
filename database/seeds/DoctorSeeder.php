@@ -4,7 +4,7 @@ use App\Doctor;
 
 class DoctorSeeder extends Seeder
 {
-	protected $needCreate = 60;
+	protected $needCreate = 100;
     public function run()
     {
 		Doctor::truncate();

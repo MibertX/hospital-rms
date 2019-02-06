@@ -4,7 +4,7 @@ use App\Patient;
 
 class PatientsSeeder extends Seeder
 {
-	protected $needCreate = 250;
+	protected $needCreate = 400;
 
     public function run()
     {
