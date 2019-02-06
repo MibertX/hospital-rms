@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Database\Seeder;
 use App\User;
+use Konekt\Acl\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -9,10 +10,18 @@ class UserSeeder extends Seeder
 	public function run()
 	{
 		User::truncate();
-		User::create([
+		DB::table('model_roles')->truncate();
+
+		$adminUser = User::create([
 			'email' => 'support@rms.com',
 			'name' => 'Support',
 			'password' => bcrypt('1234qwer')
+		]);
+
+		DB::table('model_roles')->insert([
+			'role_id' => Role::where('name', 'admin')->first()->id,
+			'model_type' => 'App\User',
+			'model_id' => $adminUser->id
 		]);
 
 		$users = factory(User::class, $this->needCreate)->make();

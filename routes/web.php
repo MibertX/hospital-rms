@@ -1,5 +1,5 @@
 <?php
-Route::group(['middleware' => ['web', 'auth']], function () {
+Route::group(['middleware' => ['auth', 'web']], function () {
 	Route::get('patients', 'PatientController@index')->name('patients.all');
 	Route::get('doctors', 'DoctorController@index')->name('doctors.all');
 

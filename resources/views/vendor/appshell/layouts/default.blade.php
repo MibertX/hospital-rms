@@ -94,7 +94,6 @@
     {!! $script->renderHtml() !!}
 @endforeach
 @yield('scripts')
-    <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('js/findby.js')}}"></script>
 </body>

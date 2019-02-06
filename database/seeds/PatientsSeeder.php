@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Database\Seeder;
 use App\Patient;
+use Konekt\Acl\Models\Role;
 
 class PatientsSeeder extends Seeder
 {
@@ -10,9 +11,17 @@ class PatientsSeeder extends Seeder
     {
 		Patient::truncate();
 
-    	$users = factory(Patient::class, $this->needCreate)->make();
-    	foreach ($users as $user) {
-    		$user->save();
+    	$patients = factory(Patient::class, $this->needCreate)->make();
+    	$patientRole = Role::where('name', 'patient')->first();
+
+    	foreach ($patients as $patient) {
+			$patient->save();
+
+			DB::table('model_roles')->insert([
+				'role_id' => $patientRole->id,
+				'model_type' => 'App\User',
+				'model_id' => $patient->user_id
+			]);
 		}
     }
 }

@@ -9,10 +9,12 @@
         <div class="card-header">
             @yield('title')
             <div class="card-actionbar">
-                <a href="{{ route('departments.create') }}" class="btn btn-sm btn-outline-success float-right">
-                    <i class="zmdi zmdi-plus"></i>
-                    {{ __('New Department') }}
-                </a>
+                @can('create departments')
+                    <a href="{{ route('departments.create') }}" class="btn btn-sm btn-outline-success float-right">
+                        <i class="zmdi zmdi-plus"></i>
+                        {{ __('New Department') }}
+                    </a>
+                @endcan
             </div>
         </div>
 
@@ -32,7 +34,7 @@
                         <td>{{$department->name}}</td>
                         <td>Корпус {{$department->housing}}</td>
                         <td>
-                            @can('edit users')
+                            @can('edit departments')
                                 <a href="{{ route('departments.edit', $department) }}"
                                    class="btn btn-xs btn-outline-primary btn-show-on-tr-hover float-right">{{ __('Edit') }}</a>
                             @endcan

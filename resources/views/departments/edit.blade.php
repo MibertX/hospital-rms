@@ -16,7 +16,7 @@
             {!! Form::close() !!}
         </div>
         <div class="card-footer">
-            @can('delete users')
+            @can('delete departments')
                 {!! Form::open(['route' => ['departments.destroy', $department], 'method' => 'DELETE', 'class' => "float-right"]) !!}
                     <button class="btn btn-outline-danger">
                         {{ __('Delete department') }}
