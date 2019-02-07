@@ -1,8 +1,11 @@
 <?php
 use Faker\Generator as Faker;
+use App\Enums\GenderEnum;
 
 $factory->define(App\User::class, function (Faker $faker) {
-	$gender = $faker->randomElement(['female', 'male']);
+	$gender = $faker->randomElement(
+		GenderEnum::values()
+	);
 
 	while(true) {
 		$email = $faker->unique()->safeEmail;
