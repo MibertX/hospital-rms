@@ -8,17 +8,20 @@ class GenerateMenus
 {
     public function handle($request, Closure $next)
     {
-		if ($appshellMenu = Menu::get('appshell')) {
+		$appshellMenu = Menu::get('appshell');
+		$authUser = Auth::user();
+
+		if ($appshellMenu && $authUser) {
 			$appshellMenu->removeItem('crm_group');
 			$appshellMenu->removeItem('shop');
 
-			if(Auth::user()->hasPermissionTo('list patients'))
+			if($authUser->hasPermissionTo('list patients'))
 				$appshellMenu->addItem('patients', __('Patients'), ['route' => 'patients.all']);
 
-			if(Auth::user()->hasPermissionTo('list doctors'))
+			if($authUser->hasPermissionTo('list doctors'))
 				$appshellMenu->addItem('doctors', __('Doctors'), ['route' => 'doctors.all']);
 
-			if(Auth::user()->hasPermissionTo('list departments'))
+			if($authUser->hasPermissionTo('list departments'))
 				$appshellMenu->addItem('departments', __('Departments'), ['route' => 'departments.all']);
 		}
 

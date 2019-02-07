@@ -14,6 +14,7 @@
     @foreach($appshell->assets->stylesheets('header') as $stylesheet)
         {!! $stylesheet->renderHtml() !!}
     @endforeach
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
     <!-- Scripts -->
     <script>
