@@ -19,7 +19,7 @@ $factory->define(App\User::class, function (Faker $faker) {
     return [
 		'name' => $faker->name($gender),
 		'gender' => $gender == 'female' ? 'female' : 'male',
-		'age' => rand('0', '75'),
+		'birthday' => $faker->dateTimeBetween($startDate = '-75 years', $endDate = '-18 year'),
         'email' => $email,
         'email_verified_at' => now(),
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
