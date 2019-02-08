@@ -7,7 +7,9 @@ class DoctorStatus extends Enum
 	const FIRED = 'fired';
 	const VACATION = 'vacation';
 	const SICK_LEAVED = 'sick_leaved';
-	const OPERATION = 'operation';
+	const AVAILABLE = 'available';
+	const __default = self::AVAILABLE;
+
 
 	public static $labels = [];
 
@@ -17,7 +19,7 @@ class DoctorStatus extends Enum
 			self::FIRED  => __('Fired'),
 			self::VACATION => __('On Vacation'),
 			self::SICK_LEAVED => __('Sick Leaved'),
-			self::OPERATION => __('On Operation')
+			self::AVAILABLE => __('Available')
 		];
 	}
 }

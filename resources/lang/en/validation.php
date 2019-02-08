@@ -144,6 +144,16 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+		'name'          => '"Name"',
+		'address'       => '"Address"',
+		'phone'         => '"Phone"',
+		'email'         => '"Email"',
+		'user.name'     => '"Name"',
+		'user.address'  => '"Address"',
+		'user.phone'    => '"Phone"',
+		'user.email'    => '"Email"',
+		'department_id' => '"Department"'
+	],
 
 ];

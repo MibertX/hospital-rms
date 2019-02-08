@@ -14,5 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .js('vendor/konekt/appshell/src/resources/assets/js/appshell.standalone.js', 'public/js/appshell.js')
     .sass('vendor/konekt/appshell/src/resources/assets/sass/appshell.sass', 'public/css')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .copy('node_modules/@chenfengyuan/datepicker/dist/datepicker.js', 'public/js')
+    .copy('node_modules/@chenfengyuan/datepicker/dist/datepicker.css', 'public/css');
 

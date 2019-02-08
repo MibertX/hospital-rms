@@ -15,6 +15,7 @@
         {!! $stylesheet->renderHtml() !!}
     @endforeach
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/datepicker.css')}}">
 
     <!-- Scripts -->
     <script>
@@ -97,5 +98,6 @@
 @yield('scripts')
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('js/findby.js')}}"></script>
+    <script src="{{asset('js/datepicker.js')}}"></script>
 </body>
 </html>

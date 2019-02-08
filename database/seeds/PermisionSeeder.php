@@ -18,11 +18,11 @@ class PermisionSeeder extends Seeder
 			'list settings', 'create settings', 'view settings', 'edit settings', 'delete settings',
 			'list departments', 'create departments', 'edit departments', 'delete departments',
 			'list patients',
-			'list doctors', 'view doctors'
+			'list doctors', 'view doctors', 'edit doctors', 'delete doctors', 'create doctors'
 		];
 
 		$patientPermissions = ['list departments', 'list doctors'];
-		$doctorsPermissions = ['list departments', 'list patients', 'list doctors'];
+		$doctorsPermissions = ['list departments', 'list patients', 'list doctors', 'view doctors'];
 
 		$permissions = array_unique(array_merge(
 			$adminOnlyPermissions,

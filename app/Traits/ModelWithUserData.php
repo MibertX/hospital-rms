@@ -50,4 +50,11 @@ trait ModelWithUserData
 
 		return $this->user->gender;
 	}
+
+	public function getBirthdayAttribute()
+	{
+		if (!$this->user) return false;
+
+		return $this->user->birthday;
+	}
 }

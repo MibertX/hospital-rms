@@ -11,7 +11,7 @@ class User extends VaniloUser
     use Notifiable, CastsEnums;
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'phone', 'address', 'birthday', 'is_registered', 'gender'
     ];
 
     protected $hidden = [

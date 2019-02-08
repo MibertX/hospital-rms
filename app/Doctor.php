@@ -12,4 +12,28 @@ class Doctor extends Model
 	protected $enums = [
 		'status' => DoctorStatus::class
 	];
+
+	protected $fillable = [
+		'user_id', 'department_id', 'notes', 'status'
+	];
+
+	public function __construct(array $attributes = [])
+	{
+		if (!isset($attributes['status'])) {
+			$this->setDefaultDoctorStatus();
+		}
+
+		parent::__construct($attributes);
+	}
+
+	protected function setDefaultDoctorStatus()
+	{
+		$this->setRawAttributes(
+			array_merge($this->attributes, [
+					'status' => DoctorStatus::defaultValue()
+				]
+			),true
+		);
+	}
+
 }
