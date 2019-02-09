@@ -12,5 +12,7 @@
 
     @include('doctors.show._doctor_details')
 
+    @include('doctors.show._patients')
+
     @include('doctors.show._actions')
 @stop

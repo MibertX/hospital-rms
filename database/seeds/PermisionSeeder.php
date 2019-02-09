@@ -17,8 +17,9 @@ class PermisionSeeder extends Seeder
 			'list roles', 'create roles', 'view roles', 'edit roles', 'delete roles',
 			'list settings', 'create settings', 'view settings', 'edit settings', 'delete settings',
 			'list departments', 'create departments', 'edit departments', 'delete departments',
-			'list patients',
-			'list doctors', 'view doctors', 'edit doctors', 'delete doctors', 'create doctors'
+			'list patients', 'view patients',
+			'list doctors', 'view doctors', 'edit doctors', 'delete doctors', 'create doctors',
+			'view doctor`s patients'
 		];
 
 		$patientPermissions = ['list departments', 'list doctors'];

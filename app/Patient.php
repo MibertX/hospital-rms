@@ -12,4 +12,10 @@ class Patient extends Model
 	protected $enums = [
 		'status' => PatientStatus::class
 	];
+
+	public function doctors()
+	{
+		return $this->belongsToMany(Doctor::class, 'patient_doctor', 'patient_id', 'doctor_id')
+			->withPivot('first_visit_at', 'last_visit_at');
+	}
 }
