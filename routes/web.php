@@ -8,6 +8,7 @@ Route::group(['middleware' => ['auth', 'web']], function () {
 	Route::get('doctors/{doctor}', 'DoctorController@show')->name('doctors.show');
 	Route::get('doctors/{doctor}/edit', 'DoctorController@edit')->name('doctors.edit');
 	Route::post('doctors/{doctor}/update', 'DoctorController@update')->name('doctors.update');
+	Route::post('doctors/{doctor}/status/update', 'DoctorController@updateStatus')->name('doctors.status.update');
 	Route::delete('doctors/{doctor}/destroy', 'DoctorController@destroy')->name('doctors.destroy');
 
 	Route::get('departments', 'DepartmentController@index')->name('departments.all');

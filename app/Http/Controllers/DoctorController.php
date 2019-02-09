@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Department;
 use App\Doctor;
+use App\Enums\DoctorStatus;
 use App\Enums\GenderEnum;
 use App\Http\Requests\CreateDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
@@ -56,9 +57,12 @@ class DoctorController extends Controller
 	}
 
 
-	public function show()
+	public function show(Doctor $doctor)
 	{
-
+		return view('doctors.show', [
+			'doctor' => $doctor,
+			'statuses' => DoctorStatus::choices()
+		]);
 	}
 
 
@@ -126,5 +130,22 @@ class DoctorController extends Controller
 		}
 
 		return redirect()->route('doctors.all');
+	}
+
+
+	public function updateStatus(Request $request, Doctor $doctor)
+	{
+		try{
+			$newStatus = $request->get('status');
+			if ($doctor->status->value() != $newStatus) {
+				$doctor->status = $newStatus;
+				$doctor->save();
+				flash()->success(__('Status changed to "' . $doctor->status . '"'));
+			}
+		} catch (\Exception $e) {
+			flash()->error(__('Could not change the status'));
+		}
+
+		return redirect(route('doctors.show', $doctor));
 	}
 }

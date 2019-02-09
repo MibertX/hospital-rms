@@ -2,7 +2,6 @@
     <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th>{{ __('ID') }}</th>
             <th>{{ __('Name') }}</th>
             <th>{{ __('Gender') }}</th>
             <th>{{ __('Status') }}</th>
@@ -16,8 +15,13 @@
         <tbody>
         @foreach($doctors as $doctor)
             <tr>
-                <td>{{$doctor->id}}</td>
-                <td>{{$doctor->name}}</td>
+                <td>
+                    @can('view doctors')
+                        <a href="{{route('doctors.show', ['doctor' => $doctor])}}">{{$doctor->name}}</a>
+                    @else
+                        {{$doctor->name}}
+                    @endcan
+                </td>
                 <td>{{$doctor->gender}}</td>
                 <td>{{$doctor->status}}</td>
                 <td>{{$doctor->age}}</td>
