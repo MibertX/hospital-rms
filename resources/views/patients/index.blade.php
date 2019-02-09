@@ -12,6 +12,12 @@
             @yield('title')
 
             <div class="card-actionbar">
+                @can('create patients')
+                    <a href="{{ route('patients.create') }}" class="btn btn-sm btn-outline-success float-right">
+                        <i class="zmdi zmdi-plus"></i>
+                        {{ __('New Patient') }}
+                    </a>
+                @endcan
             </div>
 
             @include('filters._findby', ['filterFields' => $filterFields])

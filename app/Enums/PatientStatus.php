@@ -10,6 +10,7 @@ class PatientStatus extends Enum
 	const OPERATION = 'operation';
 	const DISCHARGED = 'discharged';
 	const SUPERVISION = 'supervision';
+	const __default = self::SUPERVISION;
 
 	public static $labels = [];
 

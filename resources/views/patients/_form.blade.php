@@ -84,25 +84,6 @@
         </div>
         @if ($errors->has('user.birthday')) <p class="error-help-block error text-danger">{{$errors->first('user.birthday')}}</p> @endif
     </div>
-
-    <div class="form-group col-12 col-md-6 {{ $errors->has('department_id') ? ' has-danger' : '' }}">
-        {!! Form::label('department_id', 'Department') !!}
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="zmdi zmdi-layers"></i>
-            </span>
-            @php($currentDepartmentId = isset($doctor) ? $doctor->department_id : false)
-            <select name="department_id" class="form-control">
-                <option value="">{{__('Select Department')}}</option>
-                @foreach($departments as $department)
-                    <option value="{{$department->id}}" {{$department->id == $currentDepartmentId ? 'selected' : ''}}>{{$department->name}}</option>
-                @endforeach
-            </select>
-        </div>
-        @if ($errors->has('department_id'))
-            <div class="error-help-block error text-danger">{{ $errors->first('department_id') }}</div>
-        @endif
-    </div>
 </div>
 
 <div class="form-group">

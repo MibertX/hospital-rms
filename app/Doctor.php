@@ -41,4 +41,9 @@ class Doctor extends Model
 		return $this->belongsToMany(Patient::class, 'patient_doctor', 'doctor_id', 'patient_id')
 			->withPivot('first_visit_at', 'last_visit_at');
 	}
+
+	public function department()
+	{
+		return $this->belongsTo(Department::class, 'department_id');
+	}
 }

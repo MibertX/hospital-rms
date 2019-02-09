@@ -1,25 +1,25 @@
 @extends('appshell::layouts.default')
 
 @section('title')
-    {{ __('Edit Doctor') }}
+    {{ __('Edit Patient') }}
 @stop
 
 
 @section('content')
     <div class="card card-accent-success">
         <div class="card-header">
-            {{ __('Edit "' . $doctor->name . '" data') }}
+            {{ __('Edit "' . $patient->name . '" data') }}
         </div>
         <div class="card-block">
-            {!! Form::model($doctor, ['route' => ['doctors.update', $doctor]]) !!}
-                @include('doctors._form')
+            {!! Form::model($patient, ['route' => ['patients.update', $patient]]) !!}
+                @include('patients._form')
             {!! Form::close() !!}
         </div>
         <div class="card-footer">
-            @can('delete doctors')
-                {!! Form::open(['route' => ['doctors.destroy', $doctor], 'method' => 'DELETE', 'class' => "float-right"]) !!}
+            @can('delete patients')
+                {!! Form::open(['route' => ['patients.destroy', $patient], 'method' => 'DELETE', 'class' => "float-right"]) !!}
                 <button class="btn btn-outline-danger">
-                    {{ __('Delete doctor') }}
+                    {{ __('Delete patient') }}
                 </button>
                 {!! Form::close() !!}
             @endcan

@@ -111,7 +111,7 @@ class DoctorController extends Controller
 			$doctor->update($request->except(['_token', 'user']));
 			flash()->success(__('Doctor "' . $doctor->name . '" edited!' ));
 		} catch (\Exception $e) {
-			flash()->error(__('Could not edit new doctor!'));
+			flash()->error(__('Could not edit doctor!'));
 		}
 
 		return redirect()->route('doctors.all');
@@ -126,7 +126,7 @@ class DoctorController extends Controller
 			$doctor->delete();
 			flash()->success(__('Doctor "' . $doctorName . '" deleted!' ));
 		} catch (\Exception $e) {
-			flash()->error(__('Could not deleete the department!'));
+			flash()->error(__('Could not deleete the doctor!'));
 		}
 
 		return redirect()->route('doctors.all');

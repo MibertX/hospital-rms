@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-sm-6 col-md-4">
         @component('appshell::widgets.card_with_icon', [
-                'icon' => $doctor->status->isAvailable() ? 'account-circle' : 'account-o',
-                'type' => $doctor->status->isAvailable() ? 'success' : 'warning'
+                'icon' => $patient->status->isDischarged() ? 'account-circle' : 'account-o',
+                'type' => $patient->status->isDischarged() ? 'success' : 'warning'
         ])
-            {{ $doctor->name }}
-            @if (!$doctor->user->is_active)
+            {{ $patient->name }}
+            @if (!$patient->user->is_active)
                 <small>
                         <span class="badge badge-default">
                             {{ __('inactive') }}
@@ -13,8 +13,8 @@
                 </small>
             @endif
             @slot('subtitle')
-                {{ __('Work since') }}
-                {{ $doctor->created_at->format(__('Y-m-d H:i')) }}
+                {{ __('Created at') }}
+                {{ $patient->created_at->format(__('Y-m-d H:i')) }}
             @endslot
         @endcomponent
     </div>
@@ -24,18 +24,18 @@
                 'icon' => 'shield-security',
                 'type' => 'info'
         ])
-            {{$doctor->status}}
+            {{$patient->status}}
 
             @slot('subtitle')
                 {{ __('Roles')}}:
-                @if($doctor->user->roles->count())
-                    {{ $doctor->user->roles->take(3)->implode('name', ' | ') }}
+                @if($patient->user->roles->count())
+                    {{ $patient->user->roles->take(3)->implode('name', ' | ') }}
                 @else
                     {{ __('no roles') }}
                 @endif
 
-                @if($doctor->user->roles->count() > 3)
-                    | {{ __('+ :num more...', ['num' => $doctor->user->roles->count() - 3]) }}
+                @if($patient->user->roles->count() > 3)
+                    | {{ __('+ :num more...', ['num' => $patient->user->roles->count() - 3]) }}
                 @endif
             @endslot
         @endcomponent
@@ -43,12 +43,12 @@
 
     <div class="col-sm-6 col-md-4">
         @component('appshell::widgets.card_with_icon', ['icon' => 'star-circle'])
-            {{ $doctor->user->login_count }} {{ __('logins') }}
+            {{ $patient->user->login_count }} {{ __('logins') }}
 
             @slot('subtitle')
-                @if ($doctor->user->last_login_at)
+                @if ($patient->user->last_login_at)
                     {{ __('Last login') }}
-                    {{ $doctor->user->last_login_at->diffForHumans() }}
+                    {{ $patient->user->last_login_at->diffForHumans() }}
                 @else
                     {{ __('never logged in') }}
                 @endif
