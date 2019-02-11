@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth', 'web']], function () {
 	Route::post('departments/{department}/update', 'DepartmentController@update')->name('departments.update');
 	Route::delete('departments/{department}/destroy', 'DepartmentController@destroy')->name('departments.destroy');
 
+	Route::get('events', 'EventController@index');
+
 	Route::get('/', function () {
 		return redirect()->route('patients.all');
 	})->name('home');

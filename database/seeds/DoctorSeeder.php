@@ -6,6 +6,7 @@ use Konekt\Acl\Models\Role;
 class DoctorSeeder extends Seeder
 {
 	protected $needCreate = 100;
+
     public function run()
     {
 		Doctor::truncate();

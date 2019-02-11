@@ -16,7 +16,6 @@
     @endforeach
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/datepicker.css')}}">
-
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -26,7 +25,7 @@
     @foreach($appshell->assets->scripts('header') as $script)
         {!! $script->renderHtml() !!}
     @endforeach
-
+    @yield('styles')
 </head>
 <!-- BODY options, add following classes to body to change options
 
@@ -95,9 +94,9 @@
 @foreach($appshell->assets->scripts('footer') as $script)
     {!! $script->renderHtml() !!}
 @endforeach
-@yield('scripts')
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('js/findby.js')}}"></script>
     <script src="{{asset('js/datepicker.js')}}"></script>
+    @yield('scripts')
 </body>
 </html>
